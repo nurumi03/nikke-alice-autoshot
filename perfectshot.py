@@ -7,6 +7,8 @@ import json
 
 # abs_dir = os.path.dirname(os.path.abspath('__file__'))
 # app_dir = os.environ.get('SYSTEMDRIVE') + os.path.sep + 'perfectshot'
+app_dir = "./"
+
 
 config_path = os.path.join(app_dir, 'config.json')
 
@@ -47,9 +49,15 @@ def sleep(start=0.3, end=0.7, modifier=SLEEP_MODIFIER):
 def rapid_shot():
     while not stop_loop:
         print(f'{CHARACTER} is shooting!')
+        interception.key_down('g')
+        sleep(0.13, 0.15)
+        interception.key_up('g')
         interception.mouse_down(MOUSE_BUTTON)
         sleep(SLEEP_START, SLEEP_END)
         interception.mouse_up(MOUSE_BUTTON)
+        interception.key_down('g')
+        sleep(0.13, 0.15)
+        interception.key_up('g')
 
 
 # I'm compile with this command
